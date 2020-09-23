@@ -1,1 +1,79 @@
-<h1>asd {{ test }}<h1>
+{% extends "base.html" %}
+
+{% block css %} {% endblock %}
+
+{% block content %}
+
+<section class="section">
+    <div class="container">
+        <h1 class="title">Iris Project</h1>
+
+        <div class="columns">
+            <div class="column">
+                <div class="block">
+                    <p align="justify">The Iris Dataset contains four features (length and width of sepals and petals) of 50 samples of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). These measures were used to create a linear discriminant model to classify the species. The dataset is often used in data mining, classification and clustering examples and to test algorithms.
+                    </p>
+                </div>
+                <div class="block">
+                    <h2 class="subtitle">Atributes <span class="tag is-info is-medium">{{ total_attributes}}</span></h2>
+                </div>
+
+                <div class="block">
+                    <div class="field is-grouped is-grouped-multiline">
+                        <div class="control">
+                            <span class="tag is-info is-medium">sepal-length</span>
+                        </div>
+
+                        <div class="control">
+                            <span class="tag is-info is-medium">sepal-width</span>
+                        </div>
+
+                        <div class="control">
+                            <span class="tag is-info is-medium">petal-length</span>
+                        </div>
+
+                        <div class="control">
+                            <span class="tag is-info is-medium">petal-width</span>
+                        </div>
+
+                        <div class="control">
+                            <span class="tag is-info is-medium">class</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="block">
+                    <h2 class="subtitle">Elements <span class="tag is-info is-medium">{{ total_elements }}</span></h2>
+                </div>
+            </div>
+            <div class="column">
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                {% for label in labels %}
+                                    <th><abbr title="Position">{{ label }}</abbr></th>    
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                                {% for items in head %}
+                                    <tr>
+                                    {% for item in items %}
+                                        <td>{{ item }}</td>
+                                    {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                        </tbody>
+                    </table>
+                    <tbody>
+
+                    </tbody>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+{% endblock %}
